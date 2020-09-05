@@ -21,3 +21,5 @@ class Board extends Model
         return $this->belongsToMany(User::class, 'favorites', 'board_id','user_id')->withTimestamps();
     }
 }
+
+
