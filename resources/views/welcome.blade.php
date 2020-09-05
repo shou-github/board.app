@@ -20,6 +20,8 @@
                 <h1>Welcome to the Boards</h1>
                 {{-- ユーザ登録ページへのリンク --}}
                 {!! link_to_route('signup.get', 'Sign up now!', [], ['class' => 'btn btn-lg btn-primary']) !!}
+                <!--ログインページへのリンク-->
+            <div style="float:right; width:50%">{!! link_to_route('login', 'Login', [], ['class' => 'btn btn-lg btn-success']) !!}</div>
             </div>
         </div>
     @endif

@@ -3,7 +3,12 @@
         @foreach ($boards as $board)
             <li class="media mb-3">
                 {{-- 投稿の所有者のメールアドレスをもとにGravatarを取得して表示 --}}
-                <img class="mr-2 rounded" src="{{ Gravatar::get($board->user->email, ['size' => 50]) }}" alt="">
+                    @if($board->user->image == null)
+                      <img style="border-radius:50%; margin-right:30px; width:70px; height:70px;" src="{{ Gravatar::get($board->user->email) }}" alt="">
+                      <!--ログインしていない-->
+                    @else
+                      <img style="border-radius:50%; margin-right:30px;  width:70px; height:70px;" src="{{ Storage::disk('s3')->url($board->user->image) }}">
+                    @endif
                 <div class="media-body">
                     <div>
                         {{-- 投稿の所有者のユーザ詳細ページへのリンク --}}
