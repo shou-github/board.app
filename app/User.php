@@ -45,7 +45,7 @@ class User extends Authenticatable
      */
     public function loadRelationshipCounts()
     {
-        $this->loadCount(['boards', 'followings', 'followers']);
+        $this->loadCount(['boards', 'followings', 'followers', 'favorites']);
 
     }
     
@@ -131,6 +131,43 @@ class User extends Authenticatable
         $userIds[] = $this->id;
         // それらのユーザが所有する投稿に絞り込む
         return Board::whereIn('user_id', $userIds);
+    }
+    
+    public function favorites()
+    {
+       return $this->belongsToMany(Board::class, 'favorites','user_id','board_id')->withTimestamps();
+    }
+
+     public function favorite($boardId)
+    {
+        $exist =$this->is_favorites($boardId);
+
+        if($exist){
+            return false;
+        }
+        else{
+            $this->favorites()->attach($boardId);
+            return true;
+        }
+    }
+
+    public function unfavorite($boardId)
+    {
+        $exist = $this->is_favorites($boardId);
+
+        if($exist){
+            $this->favorites()->detach($boardId);
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public function is_favorites($boardId)
+    {
+        // フォロー中ユーザの中に $userIdのものが存在するか
+        return $this->favorites()->where('board_id', $boardId)->exists();
     }
     
     

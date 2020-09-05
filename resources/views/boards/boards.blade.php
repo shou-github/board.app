@@ -21,6 +21,8 @@
                                 {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
                             {!! Form::close() !!}
                         @endif
+                        {{-- フォロー／アンフォローボタン --}}
+                        @include('favorites.favorite_button')
                     </div>
                 </div>
             </li>
