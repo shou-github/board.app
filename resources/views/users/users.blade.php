@@ -6,12 +6,12 @@
                 
                 {{-- ユーザのメールアドレスをもとにGravatarを取得して表示 --}}
                 <div>
-@if($user->image == null)
+                    @if($user->image == null)
                       <img style="border-radius:50%; margin-right:30px; width:70px; height:70px;" src="{{ Gravatar::get($user->email) }}" alt="">
                       <!--ログインしていない-->
                     @else
                       <img style="border-radius:50%; margin-right:30px;  width:70px; height:70px;" src="{{ Storage::disk('s3')->url($user->image) }}">
-                    @endif                </div>
+                    @endif               
                 <div class="media-body">
                     <div>
                         {{ $user->name }}

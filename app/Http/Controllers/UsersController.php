@@ -43,6 +43,22 @@ class UsersController extends Controller
         ]);
     }
     
+    public function edit($id)
+    {
+        // idの値でメモを検索して取得
+        $user = User::findOrFail($id);
+        
+            // メモ編集をviewで表示させる
+        if (\Auth::id() === $user->id) {
+            return view('users.edit', [
+            'user' => $user,
+        ]);
+    }
+        // ページをリダイレクトする
+        return redirect('/');
+        
+    }
+    
     public function followings($id)
     {
         // idの値でユーザを検索して取得
@@ -125,6 +141,10 @@ class UsersController extends Controller
         // バリデーション
         $this->validate($request, [
             'image' => 'required',
+            'name' => 'required',
+            'introduction' => 'nullable'
+
+
         ]);
         
         $file = $request->file('image');
@@ -144,8 +164,10 @@ class UsersController extends Controller
         // idの値でユーザーを検索して取得
         $user = User::findOrFail($id);
        
-        // ログイン中に画像を表示し保存する
+         // ログイン中に画像を表示し保存する
             $user->image =$path;
+            $user->name = $request->name;
+            $user->introduction = $request->introduction;
             $user->save();
         
         return redirect('/');

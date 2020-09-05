@@ -20,37 +20,30 @@
                     
                           
                     @if($user->image == null)
-                      <img style="border-radius:50%; border-width: 4px; border-style: solid; border-color:skyblue; width:70px; height:70px;" src="{{ Gravatar::get($user->email) }}" alt="">
+                      <img style="border-radius:50%;width:70px; height:70px;" src="{{ Gravatar::get($user->email) }}" alt="">
                       <!--ログインしていない-->
                     @else
-                      <img style="border-radius:50%; border-width: 4px; border-style: solid; border-color:skyblue;  width:70px; height:70px;" src="{{ Storage::disk('s3')->url($user->image) }}">
+                      <img style="border-radius:50%; width:70px; height:70px;" src="{{ Storage::disk('s3')->url($user->image) }}">
                     @endif
                   </a>
             <!--アイコンをクリックするとdropdownを表示させる-->
             <ul class="dropdown-menu dropdown-menu-right">
-                <li class="dropdown-item">
-                <!--UsersControllerのアクションを取得する-->
-                  <form method="POST" action="{{route('users.update',$user->id)}}" enctype="multipart/form-data"  style="display:flex;">
-                        @csrf
-                        @method('PUT')
-                        <!--downloadから画像を選択するボタン-->
-                        <input type="file" name="image">
-                        <!--選択した画像を表示させるボタン-->
-                        <div class="form-submit" style="text-align: center;">
-                          <button class="btn" style="background-color:blue; color:white;　text-align: center;" type="submit">変更</button>
-                      </div>
-                  </form>
-                  </li>
+                
                 <li class="dropdown-divider"></li>
-                <li class="dropdown-item" style="text-align: center;">{!! link_to_route('users.show', 'プロフィール', ['user' => Auth::id()],['class' => 'btn btn-success']) !!}</li>
+                <li class="dropdown-item" style="text-align: center;"><a href="/" class="btn" style="background:blue; color:white;">トップページ</a></li>
+                
+                <li class="dropdown-divider"></li>
+                <li class="dropdown-item" style="text-align: center;">{!! link_to_route('users.show', 'マイページ', ['user' => Auth::id()],['class' => 'btn btn-success']) !!}</li>
                 
                     <li class="dropdown-divider"></li>
+                <li class="dropdown-item" style="text-align: center;">{!! link_to_route('users.edit', 'プロフィール編集', ['user' => Auth::id()],['class' => 'btn btn-danger']) !!}</li>
                       <!--ログアウトへのリンク-->
                       <li class="dropdown-item" onclick="return Logout_check()" style="text-align: center;">
-                        {!! link_to_route('logout.get', 'Logout', [], ['class' => 'btn btn-secondary']) !!}
+                        {!! link_to_route('logout.get', 'ログアウト', [], ['class' => 'btn btn-secondary']) !!}
                       </li>
             </ul>
             </ul>
+
         @else
           <a class="navbar-brand" style="font-size:30px; font-weight:bold; color:black;" href="/">Board</a>  
         @endif 
