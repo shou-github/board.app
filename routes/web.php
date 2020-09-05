@@ -32,6 +32,11 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
+    
+    Route::group(['prefix' => 'boards/{id}'], function () {
+        Route::post('favorite', 'FavoritesController@store')->name('favorites.favorite');
+        Route::delete('unfavorite', 'FavoritesController@destroy')->name('favorites.unfavorite');
+    });
 
     Route::resource('boards', 'BoardsController', ['only' => ['store', 'destroy']]);
 });
