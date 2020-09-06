@@ -1,6 +1,6 @@
 <div class="card text-center">
     <div class="card-header" style="background-color:#000080;">
-        <h3 class="card-title" style="color:white;">{{ $user->name }}</h3>
+        <h3 class="card-title" style="color:white; font-size:36px;"><i class="far fa-id-card"></i> {{ $user->name }}</h3>
         
     </div>
     <div class="card-body">
@@ -13,7 +13,9 @@
         <img class="rounded img-fluid" style="width:200px; height:180px;" src="{{ Storage::disk('s3')->url($user->image) }}">
     @endif
         
-        <div class="text-left" style="margin-top:30px;">{{ $user->introduction }}</div>
+        <label for="introduction" style="font-weight:bold; font-size:30px;">自己紹介</label>
+
+        <div class="text-left">{{ $user->introduction }}</div>
        
         
     </div>

@@ -1,8 +1,8 @@
 <header class="mb-4">
-    <nav class="navbar navbar-expand-sm navbar-dark" style="background: linear-gradient(to top, rgb(255, 172, 17), rgb(255, 231, 17));">
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background: linear-gradient(to top, #66FFFF, #0066FF);">
       <!--ログイン中の動作-->
 @if (Auth::check())
-          <a class="navbar-brand" style="font-size:50px;" href="/"><?php $user = Auth::user(); ?>{{ $user->name }}</a>
+          <a class="navbar-brand" style="font-size:40px; font-weight:bold;" href="/"><i class="fas fa-share-square"></i> <?php $user = Auth::user(); ?>Board.app</a>
     
             <button type="button" class="navbar-toggler" style="background-color:orange;"  data-toggle="collapse" data-target="#nav-bar">
               <span class="navbar-toggler-icon"></span>
@@ -12,7 +12,7 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 {{-- ユーザ一覧ページへのリンク --}}
-                    <li class="nav-item" style="margin-top:25px;">{!! link_to_route('users.index', 'ユーザ一覧', [], ['class' => 'btn btn-primary']) !!}</li>
+                    <li class="nav-item" style="margin-top:25px;">{!! link_to_route('users.index', 'ユーザ一覧', [], ['class' => 'btn btn-success']) !!}</li>
                     <li class="nav-item dropdown">
                         
                 <li class="nav-item dropdown">
@@ -33,7 +33,7 @@
                 <li class="dropdown-item" style="text-align: center;"><a href="/" class="btn" style="background:blue; color:white;">トップページ</a></li>
                 
                 <li class="dropdown-divider"></li>
-                <li class="dropdown-item" style="text-align: center;">{!! link_to_route('users.show', 'マイページ', ['user' => Auth::id()],['class' => 'btn btn-success']) !!}</li>
+                <li class="dropdown-item" style="text-align: center;">{!! link_to_route('users.show', 'マイページ', ['user' => Auth::id()],['class' => 'btn btn-info']) !!}</li>
                 
                     <li class="dropdown-divider"></li>
                 <li class="dropdown-item" style="text-align: center;">{!! link_to_route('users.edit', 'プロフィール編集', ['user' => Auth::id()],['class' => 'btn btn-danger']) !!}</li>
@@ -45,7 +45,7 @@
             </ul>
 
         @else
-          <a class="navbar-brand" style="font-size:30px; font-weight:bold; color:black;" href="/">Board</a>  
+          <a class="navbar-brand" style="font-size:40px; font-weight:bold; color:white;" href="/"><i class="far fa-share-square"></i>Board.app</a>  
         @endif 
   </nav>
 </header>
