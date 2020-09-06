@@ -40,5 +40,5 @@ Route::group(['middleware' => ['auth']], function () {
         Route::delete('unfavorite', 'FavoritesController@destroy')->name('favorites.unfavorite');
     });
 
-    Route::resource('boards', 'BoardsController', ['only' => ['store', 'destroy']]);
+    Route::resource('boards', 'BoardsController', ['only' => ['store', 'destroy','edit','update']]);
 });

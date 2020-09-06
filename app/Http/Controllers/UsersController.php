@@ -141,8 +141,8 @@ class UsersController extends Controller
         // バリデーション
         $this->validate($request, [
             'image' => 'required',
-            'name' => 'required',
-            'introduction' => 'nullable'
+            'name' => 'required|max:12',
+            'introduction' => 'nullable|max:140'
 
 
         ]);

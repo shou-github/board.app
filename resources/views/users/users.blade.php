@@ -1,9 +1,7 @@
 @if (count($users) > 0)
-        <div class="text-center center jumbotron" style="padding:30px;">
-            <h1>ユーザ一覧</h1>
-        </div>
+        
             <i class="fas fa-search mr-2" style="font-size:30px;"></i><input type="search" style="width:250px;" class="light-table-filter mb-3" data-table="order-table" placeholder="検索ワードを入力"/>
-        <table class="order-table text-center" style="width:100%; height:100px;">
+        <table class="order-table text-center">
             
             <tbody>
                 @foreach ($users as $user)
@@ -21,7 +19,7 @@
                     <!--メモのタイトル表示-->
                     <td>{!! link_to_route('users.show', 'プロフィール', ['user' => $user->id],['class' => 'btn btn-info']) !!}</td>
                     <!--メモ削除ボタン-->
-                    
+                </tr>
                 @endforeach
             </tbody>
         </table>

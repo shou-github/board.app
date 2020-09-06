@@ -1,15 +1,19 @@
-{!! Form::open(['route' => 'boards.store']) !!}
+@extends('layouts.app')
+
+@section('content')
+    {!! Form::model($board, ['route' => ['boards.update', $board->id], 'method' => 'put']) !!}
+    
     <div class="form-group">
         <div class="form-group" style="font-size:30px; margin-top:30px; font-weight:bold;">  
                    
 <div class="text-center center jumbotron" style="padding:30px;">
-            <h1>投稿ページ</h1>
+            <h1>編集ページ</h1>
         </div>
         </div>
         
-        <form method="POST" action="{{route('boards.store')}}" enctype="multipart/form-data">
+        <form method="POST" action="{{route('boards.update', $board->id)}}" enctype="multipart/form-data">
                 @csrf
-                
+                @method('PUT')
                 
             
             
@@ -39,9 +43,11 @@
                         <button id="tweet" class="btn" style="background-color:#00aced; color:white;" type="button"><i class="fab fa-twitter"></i> ツイート</button>
                     </p>
                 
-        <textarea contenteditable class="form-control" onkeyup="ShowLength(value);" name="content" rows="4" id="content">{{ old('content') }}</textarea><br>
+        <textarea contenteditable class="form-control" onkeyup="ShowLength(value);" name="content" rows="4" id="content">{{ old('content', $board->content) }}</textarea><br>
         {!! Form::submit('投稿', ['class' => 'btn btn-primary btn-block']) !!}
     </div>
 {!! Form::close() !!}
 
     
+
+@endsection
