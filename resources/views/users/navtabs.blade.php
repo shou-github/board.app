@@ -1,6 +1,6 @@
 <ul class="nav nav-tabs nav-justified mb-3">
     {{-- ユーザ詳細タブ --}}
-    <li class="nav-item" style="background: linear-gradient(to right, #FFCCFF, #FF367F);">
+    <li class="nav-item" style="background: linear-gradient(to right, #FFCCFF, #FF0000);">
         <a href="{{ route('users.show', ['user' => $user->id]) }}" class="nav-link {{ Request::routeIs('users.show') ? 'active' : '' }}">
             投稿
             <span class="badge badge-dark">{{ $user->boards_count }}</span>
@@ -15,13 +15,13 @@
         </a>
     </li>
     {{-- フォロワー一覧タブ --}}
-    <li class="nav-item" style="background: linear-gradient(to right, #99FF00, #00FF7F);">
+    <li class="nav-item" style="background: linear-gradient(to right, #93FFAB, #32CD32);">
         <a href="{{ route('users.followers', ['id' => $user->id]) }}" class="nav-link {{ Request::routeIs('users.followers') ? 'active' : '' }}">
             フォロワー
             <span class="badge badge-success">{{ $user->followers_count }}</span>
         </a>
     </li>
-    <li class="nav-item" style="background:#FFFF33;">
+    <li class="nav-item" style="background: linear-gradient(to right, #FFFFEE, #FFFF00);">
         <a href="{{ route('users.favorites', ['id' => $user->id]) }}" class="nav-link {{ Request::routeIs('users.favorites') ? 'active' : '' }}">
             お気に入り
             <span class="badge badge-warning">{{ $user->favorites_count }}</span>

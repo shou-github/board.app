@@ -142,7 +142,8 @@ class UsersController extends Controller
         $this->validate($request, [
             'image' => 'required',
             'name' => 'required|max:12',
-            'introduction' => 'nullable|max:140'
+            'introduction' => 'nullable|max:140',
+            'job' => 'required'
 
 
         ]);
@@ -168,6 +169,7 @@ class UsersController extends Controller
             $user->image =$path;
             $user->name = $request->name;
             $user->introduction = $request->introduction;
+            $user->job = $request->job;
             $user->save();
         
         return redirect('/');

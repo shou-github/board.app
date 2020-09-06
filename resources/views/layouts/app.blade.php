@@ -12,7 +12,8 @@
             body::before {
               content: "";
               
-              background: url(img/bg-sp.png) no-repeat center center opacity 0.5;
+              background: url({{ asset('sea.jpg') }}) no-repeat center center;
+              background-blend-mode:lighten;
               background-size: cover;
               display: block;
               position: fixed;
@@ -31,7 +32,7 @@
         </style>
     </head>
     
-    <body style="background-image:url({{ asset('sea.jpg') }}); center no-repeat; background-size: cover;">
+    <body>
 
         {{-- ナビゲーションバー --}}
         @include('commons.navbar')

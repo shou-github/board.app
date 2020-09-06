@@ -65,7 +65,9 @@ class BoardsController extends Controller
     
     public function update(Request $request, $id)
     {
-        
+        $request->validate([
+            'content' => 'required|max:255',
+        ]);
         
         // idの値でメモを検索して取得
         $board = Board::findOrFail($id);

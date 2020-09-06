@@ -13,6 +13,13 @@
         <img class="rounded img-fluid" style="width:200px; height:180px;" src="{{ Storage::disk('s3')->url($user->image) }}">
     @endif
         
+@if($user->job == null)
+        <p style="font-size:20px;">職業：未選択</p>
+    @else
+        <p style="font-size:20px;">職業：{{ $user->job }}</p>
+    @endif
+        
+        
         <label for="introduction" style="font-weight:bold; font-size:30px;">自己紹介</label>
 
         <div class="text-left">{{ $user->introduction }}</div>
