@@ -2,28 +2,12 @@
     <div class="form-group">
         <div class="form-group" style="font-size:30px; margin-top:30px; font-weight:bold;">  
                    
-<div class="text-center center jumbotron" style="padding:30px;">
+        <div class="text-center center jumbotron" style="padding:30px;">
             <h1>投稿ページ</h1>
         </div>
-        </div>
+    </div>
         
-        <form method="POST" action="{{route('boards.store')}}" enctype="multipart/form-data">
-                @csrf
-                
-                
-            
-            
-            <div class="form-image">
-                <input type="file" style="margin-bottom:30px;" name="image" id="img">
-            </div>
-            
-            
-            
-                <div class="form-submit">
-                 <button class="btn" style="background-color:blue; color:white;" type="submit">編集する</button>
-                </div>
-                
-        </form>
+       
         <!--音声読み上げ機能-->
         <div class="form-inline float-right" style="font-size:30px;">
                     <p>文字数 : </p>

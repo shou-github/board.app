@@ -1,7 +1,7 @@
 @if (count($users) > 0)
         
             <i class="fas fa-search mr-2" style="font-size:30px;"></i><input type="search" style="width:250px;" class="light-table-filter mb-3" data-table="order-table" placeholder="検索ワードを入力"/>
-        <table class="order-table text-center">
+        <table class="order-table text-center" style="width:50%;">
             
             <tbody>
                 @foreach ($users as $user)

@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Image;
-
-use Storage;
 
 use App\Board;
 
@@ -32,30 +29,22 @@ class BoardsController extends Controller
         return view('welcome', $data);
     }
     
-    
     public function store(Request $request)
     {
         // バリデーション
         $request->validate([
             'content' => 'required|max:255',
         ]);
-        
-        $file = $request->file('image');
-        
-        // S3に接続
-        $path = Storage::disk('s3')->putFile('images', $file, 'public');
 
-       
         // 認証済みユーザ（閲覧者）の投稿として作成（リクエストされた値をもとに作成）
         $request->user()->boards()->create([
             'content' => $request->content,
-            'image' => $path
         ]);
-        
-         
-        
-        return redirect('/');
+
+        // 前のURLへリダイレクトさせる
+        return back();
     }
+
     
     public function edit($id)
     {
@@ -76,31 +65,21 @@ class BoardsController extends Controller
     
     public function update(Request $request, $id)
     {
-        // バリデーション
-        $this->validate($request, [
-            'content' => 'required'
-
-        ]);
         
-        $file = $request->file('image');
         
-        // S3に接続
-        $path = Storage::disk('s3')->putFile('images', $file, 'public');
-
-       
-        // idの値でユーザーを検索して取得
+        // idの値でメモを検索して取得
         $board = Board::findOrFail($id);
-
-         // ログイン中に画像を表示し保存する
+        
+        
+        // メモを更新する
+        
         if (\Auth::id() === $board->user_id) {
-
-            $board->image =$path;
             $board->content = $request->content;
             $board->save();
         }
         return redirect('/');
     }
-    
+
     
     public function destroy($id)
     {

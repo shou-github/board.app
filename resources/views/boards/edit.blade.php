@@ -9,25 +9,10 @@
 <div class="text-center center jumbotron" style="padding:30px;">
             <h1>編集ページ</h1>
         </div>
-        </div>
         
-        <form method="POST" action="{{route('boards.update', $board->id)}}" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
-                
-            
-            
-            <div class="form-image">
-                <input type="file" style="margin-bottom:30px;" name="image" id="img">
-            </div>
-            
-            
-            
-                <div class="form-submit">
-                 <button class="btn" style="background-color:blue; color:white;" type="submit">編集する</button>
-                </div>
-                
-        </form>
+    </div>
+        
+       
         <!--音声読み上げ機能-->
         <div class="form-inline float-right" style="font-size:30px;">
                     <p>文字数 : </p>

@@ -13,7 +13,7 @@
                     <div>
                         {{-- 投稿の所有者のユーザ詳細ページへのリンク --}}
                         <div style="font-size:30px;">{!! link_to_route('users.show', $board->user->name, ['user' => $board->user->id]) !!}</div>
-                        <span class="text-muted">投稿日時 {{ $board->created_at }}</span>
+                        <span class="text-muted">投稿日時 {{ $board->updated_at }}</span>
                     </div>
                     <div>
                         {{-- 投稿内容 --}}
@@ -24,9 +24,9 @@
                         @include('favorites.favorite_button')
                         @if (Auth::id() == $board->user_id)
                             {{-- 投稿削除ボタンのフォーム --}}
-                            {!! link_to_route('boards.edit', '編集', ['board' => $board->id], ['class' => 'btn btn-success']) !!}
+                            {!! link_to_route('boards.edit', '編集', ['board' => $board->id], ['class' => 'btn btn-primary']) !!}
                             {!! Form::open(['route' => ['boards.destroy', $board->id], 'method' => 'delete']) !!}
-                                {!! Form::submit('削除', ['class' => 'btn btn-danger btn']) !!}
+                            {!! Form::submit('削除', ['class' => 'btn btn-danger btn']) !!}
                             {!! Form::close() !!}
                         @endif
                         
