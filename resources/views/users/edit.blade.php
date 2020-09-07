@@ -14,7 +14,7 @@
                 
             <div class="form-name">
               <label for="name" style="font-weight:bold; font-size:30px;" class="form-name">名前</label>
-              <input type="text" class="col-sm-4 form-control" style="margin-bottom:30px;" value="{{ old('name', $user->name) }}" name="name">
+              <input type="text" class="col-sm-6 form-control" style="margin-bottom:30px;" value="{{ old('name', $user->name) }}" name="name">
             </div>
             
             <div class="form-image">
@@ -39,11 +39,11 @@
             
             <div class="form-image">
                 <label for="introduction" style="font-weight:bold; font-size:30px;">自己紹介(140字まで)</label><br>
-                <textarea name="introduction" onkeyup="ShowLength(value);" rows="5" cols="40">{{ old('introduction', $user->introduction) }}</textarea>
+                <textarea name="introduction" onkeyup="ShowLength(value);" rows="5" cols="41" style="margin-bottom:30px;">{{ old('introduction', $user->introduction) }}</textarea>
             </div>
             
             <div class="form-submit">
-                <button class="btn" style="background-color:blue; color:white;" type="submit">編集する</button>
+                <button class="btn" style="background-color:blue; color:white; margin-bottom:50px; width:50%;"  type="submit">編集する</button>
             </div>
                 
         </form>

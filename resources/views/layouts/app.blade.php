@@ -24,12 +24,34 @@
               z-index: -1;
               transform: translateZ(0);
               
-            background-color:rgba(255,255,255,0.4);
+            background-color:rgba(255,255,255,0.6);
             }
             
-            
-            
         </style>
+        
+        <script language="JavaScript" type="text/JavaScript">
+            
+            // 削除する前の確認機能
+            function Delete_check(){
+                let checked = confirm("本当に削除しますか?");
+                if (checked == true) {
+                    return true;
+            } else {
+                    return false;
+            }
+            
+        }
+            // ログアウトする前の確認機能
+            function Logout_check(){
+                let checked = confirm("ログアウトしますか?");
+                if (checked == true) {
+                    return true;
+            } else {
+                    return false;
+            }
+        }
+        </script>
+        
     </head>
     
     <body>

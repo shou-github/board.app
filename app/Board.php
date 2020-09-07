@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Board extends Model
 {
-    protected $fillable = ['content'];
+    protected $fillable = ['content','image',];
 
     /**
      * この投稿を所有するユーザ。（ Userモデルとの関係を定義）

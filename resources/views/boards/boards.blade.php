@@ -15,18 +15,22 @@
                         <div style="font-size:30px;">{!! link_to_route('users.show', $board->user->name, ['user' => $board->user->id]) !!}</div>
                         <span class="text-muted">投稿日時 {{ $board->updated_at }}</span>
                     </div>
+                    
+                    
+                    
                     <div>
                         {{-- 投稿内容 --}}
                         <p style="font-size:25px;">{!! nl2br(e($board->content)) !!}</p>
-                        
+
                     <div style="margin:15px; display:flex; justify-content: space-evenly;">
                         {{-- お気に入りボタン --}}
                         @include('favorites.favorite_button')
                         @if (Auth::id() == $board->user_id)
                             {{-- 投稿削除ボタンのフォーム --}}
-                            {!! link_to_route('boards.edit', '編集', ['board' => $board->id], ['class' => 'btn btn-primary']) !!}
+                            <div style="margin-bottom:20px;"{!! link_to_route('boards.edit', '編集', ['board' => $board->id], ['class' => 'btn btn-primary']) !!}</div>
                             {!! Form::open(['route' => ['boards.destroy', $board->id], 'method' => 'delete']) !!}
-                            {!! Form::submit('削除', ['class' => 'btn btn-danger btn']) !!}
+                            <div onclick="return Delete_check()">
+                            {!! Form::submit('削除', ['class' => 'btn btn-danger btn']) !!}</div>
                             {!! Form::close() !!}
                         @endif
                         

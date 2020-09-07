@@ -1,4 +1,5 @@
-<ul class="nav nav-tabs nav-justified mb-3">
+
+<ul class="nav nav-tabs nav-justified mb-3" style="margin-top:30px;">
     {{-- ユーザ詳細タブ --}}
     <li class="nav-item" style="background: linear-gradient(to right, #FFCCFF, #FF0000);">
         <a href="{{ route('users.show', ['user' => $user->id]) }}" class="nav-link {{ Request::routeIs('users.show') ? 'active' : '' }}">
@@ -23,7 +24,7 @@
     </li>
     <li class="nav-item" style="background: linear-gradient(to right, #FFFFEE, #FFFF00);">
         <a href="{{ route('users.favorites', ['id' => $user->id]) }}" class="nav-link {{ Request::routeIs('users.favorites') ? 'active' : '' }}">
-            お気に入り
+            <i class="fas fa-star" style="color:yellow;"></i> お気に入り
             <span class="badge badge-warning">{{ $user->favorites_count }}</span>
         </a>
     </li>
