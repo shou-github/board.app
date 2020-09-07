@@ -29,22 +29,25 @@ class BoardsController extends Controller
         return view('welcome', $data);
     }
     
+    
     public function store(Request $request)
     {
         // バリデーション
         $request->validate([
             'content' => 'required|max:255',
+            
         ]);
-
+        
+       
         // 認証済みユーザ（閲覧者）の投稿として作成（リクエストされた値をもとに作成）
         $request->user()->boards()->create([
             'content' => $request->content,
         ]);
-
-        // 前のURLへリダイレクトさせる
-        return back();
+        
+         
+        
+        return redirect('/');
     }
-
     
     public function edit($id)
     {
@@ -65,23 +68,26 @@ class BoardsController extends Controller
     
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'content' => 'required|max:255',
+        // バリデーション
+        $this->validate($request, [
+            'content' => 'required|max:255'
+
         ]);
         
-        // idの値でメモを検索して取得
+        
+       
+        // idの値でユーザーを検索して取得
         $board = Board::findOrFail($id);
-        
-        
-        // メモを更新する
-        
+
+         // ログイン中に画像を表示し保存する
         if (\Auth::id() === $board->user_id) {
+
             $board->content = $request->content;
             $board->save();
         }
         return redirect('/');
     }
-
+    
     
     public function destroy($id)
     {
@@ -96,6 +102,7 @@ class BoardsController extends Controller
         // 前のURLへリダイレクトさせる
         return back();
     }
+    
     
     
 }

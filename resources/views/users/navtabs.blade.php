@@ -24,7 +24,7 @@
     </li>
     <li class="nav-item" style="background: linear-gradient(to right, #FFFFEE, #FFFF00);">
         <a href="{{ route('users.favorites', ['id' => $user->id]) }}" class="nav-link {{ Request::routeIs('users.favorites') ? 'active' : '' }}">
-            <i class="fas fa-star" style="color:yellow;"></i> お気に入り
+            <i class="fas fa-star"></i> お気に入り
             <span class="badge badge-warning">{{ $user->favorites_count }}</span>
         </a>
     </li>

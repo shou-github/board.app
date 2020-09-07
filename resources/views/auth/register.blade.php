@@ -28,9 +28,9 @@
                     {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
                 </div>
 
-                {!! Form::submit('Sign up', ['class' => 'btn btn-primary btn-block']) !!}
+                {!! Form::submit('新規登録', ['class' => 'btn btn-primary btn-block']) !!}
                 <div style="margin-top:20px;">
-                {!! link_to_route('login', 'ログイン', [], ['class' => 'btn btn-success']) !!}
+                {!! link_to_route('login', 'ログインページへ', [], ['class' => 'btn btn-success']) !!}
                 </div>
             {!! Form::close() !!}
         </div>

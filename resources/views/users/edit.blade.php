@@ -13,7 +13,7 @@
                 @method('PUT')
                 
             <div class="form-name">
-              <label for="name" style="font-weight:bold; font-size:30px;" class="form-name">名前</label>
+              <label for="name" style="font-weight:bold; font-size:30px;" class="form-name">名前(10文字まで）</label>
               <input type="text" class="col-sm-6 form-control" style="margin-bottom:30px;" value="{{ old('name', $user->name) }}" name="name">
             </div>
             

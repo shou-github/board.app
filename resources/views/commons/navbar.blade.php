@@ -4,7 +4,7 @@
 @if (Auth::check())
           <a class="navbar-brand" style="font-size:40px; font-weight:bold;" href="/"><i class="fas fa-share-square"></i> <?php $user = Auth::user(); ?>Board.app</a>
     
-            <button type="button" class="navbar-toggler" style="background-color:orange;"  data-toggle="collapse" data-target="#nav-bar">
+            <button type="button" class="navbar-toggler" style="background-color:blue;"  data-toggle="collapse" data-target="#nav-bar">
               <span class="navbar-toggler-icon"></span>
             </button>
 

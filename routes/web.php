@@ -41,4 +41,7 @@ Route::group(['middleware' => ['auth']], function () {
     });
 
     Route::resource('boards', 'BoardsController', ['only' => ['store', 'destroy','edit','update']]);
+    
+
 });
+

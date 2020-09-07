@@ -9,14 +9,6 @@
         
         
 
-
-
-                <div class="form-submit">
-                 <button class="btn" style="background-color:blue; color:white;" type="submit">編集する</button>
-                </div>
-
-        
-       
         <!--音声読み上げ機能-->
         <div class="form-inline float-right" style="font-size:30px;">
             <p>文字数：</p>
@@ -33,7 +25,6 @@
             </p>
                 
         <textarea contenteditable class="form-control" onkeyup="ShowLength(value);" name="content" rows="4" id="content">{{ old('content') }}</textarea><br>
-    
         {!! Form::submit('投稿', ['class' => 'btn btn-primary btn-block']) !!}
     </div>
 {!! Form::close() !!}
