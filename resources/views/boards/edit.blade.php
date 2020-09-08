@@ -16,16 +16,10 @@
                     <p>文字数：</p>
                     <p id="inputlength">0</p>
         </div>
-                <p style="font-size:30px;"> 
-                    <button class="btn" style="background-color:#2C7CFF; color:white;" id="button1" type="button"><i class="fas fa-volume-up"></i> 英語</button>
-                    <!--日本語-->
-                    <button class="btn" style="background-color:#FF6600; color:white;" id="button2" type="button"><i class="fas fa-volume-up"></i> 日本語</button>
-                    <!--読み上げ中止-->
-                    <button class="btn" style="background-color:red; color:white;" id="button3" type="button"><i class="fas fa-volume-mute"></i> 停止</button>
-                        
-                    <button id="tweet" class="btn" style="background-color:#00aced; color:white;" type="button"><i class="fab fa-twitter"></i> ツイート</button>
-                </p>
                 
+                   
+                    <button id="tweet" class="btn" style="background-color:#00aced; color:white;" type="button"><i class="fab fa-twitter"></i> ツイート</button>
+
         <textarea contenteditable class="form-control" onkeyup="ShowLength(value);" name="content" rows="4" id="content">{{ old('content', $board->content) }}</textarea><br>
         {!! Form::submit('投稿', ['class' => 'btn btn-primary btn-block']) !!}
         </div>

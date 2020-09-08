@@ -116,31 +116,7 @@
                 document.getElementById("inputlength").innerHTML = ""+ str.length ;
              }
              
-             // 音声読み上げ機能
-        
-        // 英語
-        button1.addEventListener("click", () => {
-          if (!window.speechSynthesis) return;
-          let u = new SpeechSynthesisUtterance(content.value);
-          u.lang = "en";
-          speechSynthesis.speak(u);
-        });
-        
-        // 日本語
-        button2.addEventListener("click", () => {
-          if (!window.speechSynthesis) return;
-          let u = new SpeechSynthesisUtterance(content.value);
-          u.lang = "ja";
-          speechSynthesis.speak(u);
-        });
-        
-        // 読み上げ中止
-        button3.addEventListener("click", () => {
-          if (!window.speechSynthesis) return;
-          speechSynthesis.cancel();
-        });
-        
-        
+            
          // twitter共有機能
         document.getElementById("tweet").addEventListener('click', function(event) {
         event.preventDefault();
