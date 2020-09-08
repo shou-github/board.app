@@ -35,12 +35,12 @@
                 <li class="dropdown-divider"></li>
                 <li class="dropdown-item" style="text-align: center;">{!! link_to_route('users.show', 'マイページ', ['user' => Auth::id()],['class' => 'btn btn-info']) !!}</li>
                 
-                    <li class="dropdown-divider"></li>
+                <li class="dropdown-divider"></li>
                 <li class="dropdown-item" style="text-align: center;">{!! link_to_route('users.edit', 'プロフィール編集', ['user' => Auth::id()],['class' => 'btn btn-danger']) !!}</li>
                       <!--ログアウトへのリンク-->
-                      <li class="dropdown-item" onclick="return Logout_check()" style="text-align: center;">
+                <li class="dropdown-item" onclick="return Logout_check()" style="text-align: center;">
                         {!! link_to_route('logout.get', 'ログアウト', [], ['class' => 'btn btn-secondary']) !!}
-                      </li>
+                </li>
             </ul>
             </ul>
 
