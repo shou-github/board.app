@@ -27,6 +27,21 @@
             background-color:rgba(255,255,255,0.6);
             }
             
+            a.btn--orange {
+              color: #fff;
+              background-color: #eb6100;
+              border-bottom: 5px solid #b84c00;
+            }
+            a.btn--orange:hover {
+              margin-top: 3px;
+              color: #fff;
+              background: #f56500;
+              border-bottom: 2px solid #b84c00;
+            }
+            a.btn--shadow {
+              -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+              box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+            }
         </style>
         
         <script language="JavaScript" type="text/JavaScript">

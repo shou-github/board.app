@@ -9,9 +9,10 @@
             <h1 style="text-align:center; font-weight:bold; font-size:50px; font-style:oblique; color: #1E90FF;-webkit-text-stroke: 1px white;">編集ページ</h1>
 
         </div>
-        
+        <div style="margin-bottom:40px;">
+                <a class="btn btn--orange btn--cubic btn--shadow; btn-lg" href="/">戻る</a>
+        </div>
        
-        <!--音声読み上げ機能-->
         <div class="form-inline float-right" style="font-size:30px;">
                     <p>文字数：</p>
                     <p id="inputlength">0</p>
