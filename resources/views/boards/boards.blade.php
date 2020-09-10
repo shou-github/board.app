@@ -38,8 +38,6 @@
                             
                         @endif
                         
-
-                        
                     </div>
                 </div>
             </li>
